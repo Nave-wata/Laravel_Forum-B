@@ -45,6 +45,6 @@ jobs:
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_DATABASE: main
-        DB_DATABASE_KEIZIBAN: database/forum.sqlite
+        DB_DATABASE_KEIZIBAN: main
         DB_PASSWORD: 0000
       run: vendor/bin/phpunit
