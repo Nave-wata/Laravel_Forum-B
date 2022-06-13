@@ -33,7 +33,9 @@ jobs:
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
-      run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "CREATE DATABASE forum"
+      env:
+        MYSQL_ROOT_PASSWORD: root_password
+      run: mysql --protocol=tcp -h localhost -P 3306 -u root -p"${MYSQL_ROOT_PASSWORD}" -e "CREATE DATABASE forum"
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_DATABASE: main
