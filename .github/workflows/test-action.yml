@@ -33,7 +33,8 @@ jobs:
         rootPassword: 0000
         user: TestUser
         password: TestPassword
-        database: TestDatabase
+        database: laravel
+        database: forum
         characterSet: utf8mb4
         collation: utf8mb4_general_ci
         sqlMode: NO_ENGINE_SUBSTITUTION
@@ -44,7 +45,6 @@ jobs:
         touch database/forum.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/main.sqlite
-        DB_DATABASE_KEIZIBAN: database/forum.sqlite
+        DB_DATABASE: laravel
+        DB_DATABASE_KEIZIBAN: forum
       run: vendor/bin/phpunit
