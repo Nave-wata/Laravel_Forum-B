@@ -1,4 +1,4 @@
-name: Laravel
+name: example2
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - '**'
 
 jobs:
-  laravel-tests:
+  example2:
 
     runs-on: ubuntu-latest
     
