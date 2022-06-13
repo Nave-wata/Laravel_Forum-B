@@ -1,4 +1,4 @@
-name: Laravel
+name: test1
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "feature/test_project" ]
 
 jobs:
-  laravel-tests:
+  test-action:
 
     runs-on: ubuntu-latest
 
