@@ -33,7 +33,7 @@ jobs:
         rootPassword: 0000
         user: TestUser
         password: TestPassword
-        database: laravel
+        database: main
         database: forum
         characterSet: utf8mb4
         collation: utf8mb4_general_ci
@@ -45,6 +45,6 @@ jobs:
         touch database/forum.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_DATABASE: laravel
+        DB_DATABASE: main
         DB_DATABASE_KEIZIBAN: forum
       run: vendor/bin/phpunit
