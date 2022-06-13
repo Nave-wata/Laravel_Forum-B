@@ -1,18 +1,25 @@
-name: Example2
+name: Laravel
 
 on:
   push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
-  job-with-mysql-8_0:
+  laravel-tests:
+
     runs-on: ubuntu-latest
+    
     services:
       db:
         image: mysql:8.0
         ports:
           - 3306:3306
         env:
-          MYSQL_ROOT_PASSWORD: root_password
+          MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: main
         options: >-
           --health-cmd "mysqladmin ping"
@@ -33,12 +40,10 @@ jobs:
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
-      env:
-        MYSQL_ROOT_PASSWORD: root_password
-      run: mysql --protocol=tcp -h localhost -P 3306 -u root -p"${MYSQL_ROOT_PASSWORD}" -e "CREATE DATABASE forum"
+      run: mysql --protocol=tcp -h localhost -P 3306 -u root -ppassword -e "CREATE DATABASE forum"
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_DATABASE: main
         DB_DATABASE_KEIZIBAN: forum
-        DB_PASSWORD: root_password
+        DB_PASSWORD: password
       run: vendor/bin/phpunit
