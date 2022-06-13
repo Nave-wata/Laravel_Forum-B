@@ -20,8 +20,8 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - name: Show databases for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -p0000 -e "CRAtE DATBASE form"
+      - name: Create database
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -p0000 -e "CREATE DATABASE form"
       - name: Show databases for root
         run: mysql --protocol=tcp -h localhost -P 3306 -u root -p0000 -e "SHOW DATABASES"
 
