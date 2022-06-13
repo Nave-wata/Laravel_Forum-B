@@ -46,7 +46,7 @@ return [
         'mysql_keiziban' => [ // Github Actions
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
-            'database' => env('DB_DATABASE_KEIZIBAN', database_path('database.sqlite')),
+            'database' => env('DB_DATABASE_KEIZIBAN', database_path('forum.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
