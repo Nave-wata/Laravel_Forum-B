@@ -35,16 +35,15 @@ jobs:
         version: 5.7
         hostPort: 33069
         containerPort: 3306
-        rootPassword: 0000
+        rootPassword:
         user: TestUser
         password: TestPassword
-        database: TestDatabase
+        database: main
         characterSet: utf8mb4
         collation: utf8mb4_general_ci
         sqlMode: NO_ENGINE_SUBSTITUTION
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/main.sqlite
+        DB_DATABASE: main
         DB_DATABASE_KEIZIBAN: database/forum.sqlite
       run: vendor/bin/phpunit
