@@ -29,6 +29,19 @@ jobs:
         mkdir -p database
         touch database/main.sqlite
         touch database/forum.sqlite
+    - name: Set up MySQL
+      uses: cweinberger/github-actions-mysql@1.0.0
+      with:
+        version: 5.7
+        hostPort: 33069
+        containerPort: 3306
+        rootPassword: 0000
+        user: TestUser
+        password: TestPassword
+        database: TestDatabase
+        characterSet: utf8mb4
+        collation: utf8mb4_general_ci
+        sqlMode: NO_ENGINE_SUBSTITUTION
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
