@@ -35,7 +35,7 @@ jobs:
         version: 5.7
         hostPort: 33069
         containerPort: 3306
-        rootPassword:
+        rootPassword: 0000
         user: TestUser
         password: TestPassword
         database: main
@@ -46,4 +46,5 @@ jobs:
       env:
         DB_DATABASE: main
         DB_DATABASE_KEIZIBAN: database/forum.sqlite
+        DB_PASSWORD=0000
       run: vendor/bin/phpunit
