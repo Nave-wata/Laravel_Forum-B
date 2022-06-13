@@ -33,5 +33,5 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/main.sqlite
-        DB_DATABASE_KEIZIBAN: database/main.sqlite
+        DB_DATABASE_KEIZIBAN: database/forum.sqlite
       run: vendor/bin/phpunit
