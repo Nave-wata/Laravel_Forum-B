@@ -40,10 +40,10 @@ jobs:
         password: TestPassword
         database: main
         characterSet: utf8mb4
-    - name: mysql
-      run: mysql --protocol=tcp -h localhost -P 3306 -u root -p0000 -e "SHOW DATABASES"
         collation: utf8mb4_general_ci
         sqlMode: NO_ENGINE_SUBSTITUTION
+    - name: mysql
+      run: mysql --protocol=tcp -h localhost -P 3306 -u root -p0000 -e "SHOW DATABASES"
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_DATABASE: main
