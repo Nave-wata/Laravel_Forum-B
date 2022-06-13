@@ -12,7 +12,7 @@ jobs:
         ports:
           - 3306:3306
         env:
-          MYSQL_ROOT_PASSWORD: 0000
+          MYSQL_ROOT_PASSWORD: root_password
           MYSQL_DATABASE: main
         options: >-
           --health-cmd "mysqladmin ping"
@@ -21,7 +21,7 @@ jobs:
           --health-retries 5
     steps:
       - name: Create database
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -p0000 -e "CREATE DATABASE form"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "CREATE DATABASE form"
       - name: Show databases for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -p0000 -e "SHOW DATABASES"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "SHOW DATABASES"
 
