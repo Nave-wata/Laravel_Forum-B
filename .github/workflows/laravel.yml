@@ -64,8 +64,7 @@ jobs:
         uses: technote-space/get-diff-action@v5
         with:
           FILES: |
-            README.md 
-
+            .github/workflows
       - name: notify diff
-        if: contains(env.GIT_DIFF, 'README.md')
+        if: contains(env.GIT_DIFF, '.github/workflows')
         run: echo ${{ env.GIT_DIFF }}
