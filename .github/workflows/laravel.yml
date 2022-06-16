@@ -39,7 +39,7 @@ jobs:
         run: chmod -R 777 storage bootstrap/cache
       - name: Create Database
         run: |
-          mysql --protocol=tcp -h localhost -P 3306 -u root -ppassword -e "CREATE DATADASE main"
+          mysql --protocol=tcp -h localhost -P 3306 -u root -ppassword -e "CREATE DATABASE main"
           mysql --protocol=tcp -h localhost -P 3306 -u root -ppassword -e "CREATE DATABASE forum"
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
