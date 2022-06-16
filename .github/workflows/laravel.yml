@@ -47,14 +47,3 @@ jobs:
           DB_DATABASE_KEIZIBAN: forum
           DB_PASSWORD: password
         run: vendor/bin/phpunit
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-      - name: npm install
-      - run: npm install
-      - name: Compile project
-      - run: npm run prod
