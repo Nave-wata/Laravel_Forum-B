@@ -56,3 +56,16 @@ jobs:
         run: vendor/bin/phpunit --testdox
       - name: git status
         run: git status
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Get Diff
+        uses: technote-space/get-diff-action@v5
+        with:
+          FILES: |
+            README.md 
+
+      - name: notify diff
+        if: contains(env.GIT_DIFF, 'README.md')
+        run: echo ${{ env.GIT_DIFF }}
