@@ -29,7 +29,7 @@ jobs:
         with:
           php-version: "8.0"
       - uses: actions/checkout@v3
-      - uses: actions/setup-node
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
       - name: Copy .env
@@ -54,3 +54,4 @@ jobs:
           DB_DATABASE_KEIZIBAN: forum
           DB_PASSWORD: password
         run: vendor/bin/phpunit --testdox
+        run: git status
