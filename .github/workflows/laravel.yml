@@ -54,3 +54,5 @@ jobs:
           DB_DATABASE_KEIZIBAN: forum
           DB_PASSWORD: password
         run: vendor/bin/phpunit --testdox
+      - name: git status
+        run: git status
